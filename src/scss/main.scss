@@ -1,0 +1,262 @@
+@import "reset";
+
+body {
+  background-color: #000000;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 10px;
+}
+
+.header {
+  background-color: #ffffff;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 30px;
+
+  > .container {
+    display: flex;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-logo,
+  &-cta,
+  &-navigation {
+    flex: 1;
+  }
+
+  &-leaves {
+    position: absolute;
+    top: 0;
+    left: -90px;
+    z-index: 0;
+  }
+
+  &-price {
+    color: #ff9900;
+    font-weight: bold;
+    font-size: 40px;
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &::after {
+    background: linear-gradient(to bottom, #a80000, #4e1919);
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+    content: "";
+  }
+
+  &-navigation ul {
+    display: flex;
+    gap: 50px;
+
+    a {
+      font-weight: bold;
+
+      &:hover {
+        color: #a80000;
+      }
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  &-cta {
+    justify-content: right;
+    display: flex;
+  }
+
+  &-image {
+    position: relative;
+
+    img:nth-child(1) {
+      z-index: 3;
+      transform: translateY(50px);
+    }
+
+    img:nth-child(2) {
+      z-index: 2;
+      transform: translateY(-10px);
+    }
+
+    img:nth-child(3) {
+      z-index: 1;
+      transform: translateY(-70px);
+    }
+
+    img:nth-child(4) {
+      z-index: 0;
+      transform: translateY(-140px);
+    }
+  }
+
+  &-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+    &_information {
+      display: none;
+      width: 100%;
+      position: absolute;
+      top: 0;
+    }
+
+    &_usp {
+      display: flex;
+      flex-direction: column;
+      color: #ffffff;
+      font-weight: 900;
+      gap: 90px;
+      margin-top: 100px;
+
+      span {
+        position: relative;
+        display: flex;
+        z-index: 5;
+        gap: 20px;
+        font-size: 20px;
+        justify-content: right;
+        transform: translateX(200px);
+
+        &::before {
+          content: "";
+          display: block;
+          position: relative;
+          width: 20px;
+          height: 20px;
+          background-color: #ffffff;
+          border-radius: 50%;
+        }
+
+        &:nth-child(even) {
+          justify-content: left;
+          transform: translateX(-200px);
+        }
+      }
+    }
+
+    &_quantity {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 30px;
+
+      &-selector {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      &-button {
+        padding: 5px;
+        background-color: #ffffff;
+        width: 30px;
+        height: 30px;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 15px;
+      }
+    }
+  }
+
+  &.is-active {
+    background: linear-gradient(to bottom, #a80000, #4e1919);
+
+    .header-content {
+      display: none;
+    }
+
+    .header-navigation {
+      color: #ffffff;
+    }
+
+    .header-burger_information {
+      display: block;
+    }
+
+    .header-leaves {
+      transform: translateY(-100%) rotate(-5deg);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .header-image {
+      position: relative;
+
+      .header-burgerpart {
+        transform: translateY(0);
+        transition: transform 0.5s ease;
+      }
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  h1 {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 900;
+    font-family: Arial;
+    font-size: 50px;
+  }
+
+  p {
+    font-size: 18px;
+    font-family: "Courier New", Courier, monospace;
+  }
+}
+
+.button {
+  background-color: #a80000;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  border: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  &.is-outline {
+    border: 1px solid #ffffff;
+    background-color: #a80000;
+  }
+}
